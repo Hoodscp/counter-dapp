@@ -3,6 +3,13 @@
 import { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 
+// 추가: window.ethereum 타입을 전역으로 선언하여 TS 오류 해결
+declare global {
+  interface Window {
+    ethereum?: any
+  }
+}
+
 // 1. 컨트랙트 ABI (Application Binary Interface)
 // Remix IDE의 Compile 탭에서 ABI 복사 버튼을 눌러 얻을 수 있습니다.
 const contractABI = [
